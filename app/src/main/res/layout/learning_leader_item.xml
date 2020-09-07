@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/card_view"
+    android:background="@color/white"
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:layout_marginBottom="5dp"
+    android:layout_height="wrap_content">
+
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginBottom="5dp">-->
+
+
+        <ImageView
+            android:id="@+id/leader_image"
+            android:layout_width="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_height="wrap_content"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/learning_hrs"
+            android:layout_below="@id/leader"
+            android:layout_toEndOf="@id/leader_image"
+            android:layout_width="wrap_content"
+
+
+
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_below="@id/leader"
+            android:layout_toEndOf="@id/learning_hrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/leader"
+            android:layout_toEndOf="@id/leader_image"
+            android:layout_width="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+
+<!--    </RelativeLayout>-->
+
+
+</LinearLayout>
