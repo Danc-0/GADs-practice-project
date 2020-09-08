@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:paddingHorizontal="5dp"
+    android:fitsSystemWindows="true"
     android:background="@drawable/app_background"
     android:layout_height="match_parent"
     tools:context=".ProjectSubmission">
@@ -18,7 +19,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/back"
             android:background="@color/transparent"
             android:layout_width="50dp"
             android:layout_height="match_parent"
@@ -102,7 +103,7 @@
         android:textColorHint="@color/grey"
         android:layout_marginBottom="80dp"
         android:background="@drawable/edit_text_background"
-        android:hint="Project on GIHUB(link)"
+        android:hint="Project on GITHUB(link)"
         android:inputType="textEmailAddress"
         android:padding="10dp" />
 
