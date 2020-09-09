@@ -15,6 +15,7 @@ public interface ApiRepo {
 
     @GET("api/hours")
     Call<ArrayList<LeaderModel>> getHours();
+
     @GET("api/skilliq")
     Call<List<LeaderModel>> getIq();
 
@@ -27,8 +28,4 @@ public interface ApiRepo {
             @Field("entry.1824927963") String emailAddress,
             @Field("entry.284483984") String projectLink
     );
-
-
-
-
 }

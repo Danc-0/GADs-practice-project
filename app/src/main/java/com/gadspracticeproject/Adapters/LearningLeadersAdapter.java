@@ -24,13 +24,17 @@ import java.util.List;
 public class LearningLeadersAdapter extends RecyclerView.Adapter<LearningLeadersAdapter.ViewHolder> {
     private static final String TAG = "LearningLeadersAdapter";
 
-    private ArrayList<LeaderModel> leaderModelList;
+    private List<LeaderModel> leaderModelList;
     private Context mContext;
 
-    public LearningLeadersAdapter(ArrayList<LeaderModel> leaderModelList, Context context) {
-        Log.d(TAG, "LearningLeadersAdapter: Called");
+    public void setData(List<LeaderModel> leaderModelList){
         this.leaderModelList = leaderModelList;
-        this.mContext = context;
+    }
+
+    public LearningLeadersAdapter() {
+//        Log.d(TAG, "LearningLeadersAdapter: Called");
+//        this.leaderModelList = leaderModelList;
+//        this.mContext = context;
     }
 
 
@@ -48,14 +52,14 @@ public class LearningLeadersAdapter extends RecyclerView.Adapter<LearningLeaders
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         LeaderModel leaderModel = leaderModelList.get(position);
         Log.d(TAG, "onBindViewHolder: Setting Items");
-        Glide.with(mContext).asBitmap().load(leaderModel.getLeaderImage()).into(holder.leaderImage);
+//        Glide.with(mContext).asBitmap().load(leaderModel.getLeaderImage()).into(holder.leaderImage);
 
 
         holder.leader.setText(leaderModel.getLeaderName());
         holder.hours.setText(leaderModel.getLearningHrs());
         holder.location.setText(leaderModel.getLeaderLocation());
 
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
 
 
     }
@@ -77,7 +81,7 @@ public class LearningLeadersAdapter extends RecyclerView.Adapter<LearningLeaders
             leader = itemView.findViewById(R.id.leader);
             hours = itemView.findViewById(R.id.learning_hrs);
             location = itemView.findViewById(R.id.location);
-            cardView = itemView.findViewById(R.id.card_view);
+//            cardView = itemView.findViewById(R.id.card_view);
             leaderImage = itemView.findViewById(R.id.leader_image);
         }
     }

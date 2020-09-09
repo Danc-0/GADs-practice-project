@@ -31,6 +31,8 @@ public class LearningLeaders extends Fragment {
 
     ArrayList<LeaderModel> leaderModel;
     private static final String TAG = "LearningLeaders";
+    RecyclerView recyclerView;
+    LearningLeadersAdapter adapter;
 
 
     @Override
@@ -47,23 +49,21 @@ public class LearningLeaders extends Fragment {
 
         Log.d(TAG, "onCreateView: Layout Inflated");
         //Implementing recyclerview;
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.leader_recycler_view);
+        recyclerView = view.findViewById(R.id.leader_recycler_view);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getContext());
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), linearLayoutManager.getOrientation()));
 
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new LearningLeadersAdapter();
 
         leaderModel = new ArrayList<>();
 
         Log.d(TAG, "onCreateView: Adapter Set");
-        
+
         // getting network Requests
         getPosts();
 
-
-        recyclerView.setAdapter(new LearningLeadersAdapter(leaderModel, getActivity()));
         return view;
     }
 
@@ -80,12 +80,14 @@ public class LearningLeaders extends Fragment {
             @Override
             public void onResponse(Call<ArrayList<LeaderModel>> call, Response<ArrayList<LeaderModel>> response) {
                 Log.d(TAG, "onCreateView: Data Gotten");
+
                 if(!response.isSuccessful()){
-                    Log.d(TAG, "onResponse: "+response.message());
+                    Log.d(TAG, "onResponse: "+ response.message());
                 }
-                for(LeaderModel model : response.body()){
-                    leaderModel.add(model);
-                }
+
+                ArrayList<LeaderModel> leaderModel = response.body();
+                adapter.setData(leaderModel);
+                recyclerView.setAdapter(adapter);
 
             }
 
