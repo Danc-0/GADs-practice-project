@@ -55,7 +55,7 @@ public class LearningLeaders extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), linearLayoutManager.getOrientation()));
 
-        adapter = new LearningLeadersAdapter();
+        adapter = new LearningLeadersAdapter(getActivity());
 
         leaderModel = new ArrayList<>();
 

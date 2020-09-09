@@ -31,10 +31,10 @@ public class LearningLeadersAdapter extends RecyclerView.Adapter<LearningLeaders
         this.leaderModelList = leaderModelList;
     }
 
-    public LearningLeadersAdapter() {
+    public LearningLeadersAdapter(Context context) {
 //        Log.d(TAG, "LearningLeadersAdapter: Called");
 //        this.leaderModelList = leaderModelList;
-//        this.mContext = context;
+        this.mContext = context;
     }
 
 
@@ -52,8 +52,7 @@ public class LearningLeadersAdapter extends RecyclerView.Adapter<LearningLeaders
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         LeaderModel leaderModel = leaderModelList.get(position);
         Log.d(TAG, "onBindViewHolder: Setting Items");
-//        Glide.with(mContext).asBitmap().load(leaderModel.getLeaderImage()).into(holder.leaderImage);
-
+        Glide.with(mContext).asBitmap().load(leaderModel.getLeaderImage()).into(holder.leaderImage);
 
         holder.leader.setText(leaderModel.getLeaderName());
         holder.hours.setText(leaderModel.getLearningHrs());
